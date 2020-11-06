@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create user</title>
+</head>
+<body>
+	<h1>Create user (add)</h1>
+	<form method="POST" enctype="multipart/form-data" action=''>
+		{% csrf_token %}
+
+		<!-- Add officer form -->
+		<h3>Add officer </h3>
+		<!--Admin id: <input type="text" name="admin_id"><br>-->
+
+		Name: <input type="text" name="name"><br>
+		Password: <input type="password" name="password"><br>
+		Image: <input type="file" name="image"><br>
+		Department: <input type="text" name="department"><br>
+		Phone number: <input type="text" name="phone_number"><br>
+		Mail: <input type="email" name="mail"><br>
+		Rank of officer: <input type="text" name="rank_of_officer"><br>
+		Location: <input type="text" name="location"><br>
+		<button value="officer">Add officer</button>
+
+
+	</form>
+	
+
+</body>
+</html>
