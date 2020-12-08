@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>Add Suspect</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+    li a:hover, .dropdown:hover .dropbtn {
+  background-color: #4CAF50;
+}
+
+/*li.dropdown {
+  display: inline-block;
+}
+*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #4CAF50;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Cases</a>
+    <div class="dropdown-content">
+      <a href="#">Add Case</a>
+      <a href="#">Add Evidence</a>
+      <a href="#">Add Case Officer</a>
+      <a href="#">Case History</a>     
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Officers</a>
+    <div class="dropdown-content">
+      <a href="#">Add Officer</a>
+      <a href="#">Add Case Officer</a>
+    </div>
+  </li>
+  <li><a href="#section3">Criminals</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>Officer</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Dashboard</a></li>
+        <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Cases</a>
+    <div class="dropdown-content">
+      <a href="#">Add Case</a>
+      <a href="#">Add Evidence</a>
+      <a href="#">Add Case Officer</a>
+      <a href="#">Case History</a>     
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Officers</a>
+    <div class="dropdown-content">
+      <a href="#">Add Officer</a>
+      <a href="#">Add Case Officer</a>
+    </div>
+  </li>
+  <li><a href="#section3">Criminals</a></li>
+        <li><a href="#section3">Logout</a></li>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+          <h2>Add Officer</h2>  
+    <form method="POST" action="" enctype="multipart/form-data">  
+      {% csrf_token %}
+
+     <fieldset> 
+     <label>Suspect ID </label>
+        <input type="SuspectID" name="Suspect ID" required><br>
+        <label>Enter Suspect full name</label>
+        <input type="text" name="name" required><br>
+        <label>Image</label>
+        <input type="file" name="image"><br>  
+        <label for="phone">Phone number</label><br>
+  <input type="tel" id="phone" name="phone" placeholder="123-45-678"required><br><br>
+  <label>Age</label>  
+    <input type="number" name="num" min="1" max="120"><br> 
+         <br><label for="gender">Gender</label>
+          <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Oth**">Oth**</option>
+          </select><br><br>
+          <label>Relation</label>
+        <input type="text" name="relation" required><br><br>
+         <label>Description</label><textarea></textarea><br><br>
+         <label>Weight</label>  
+    <input type="number" name="num" min="10" max="100"><br><br>
+         <label>Case ID </label>
+        <input type="CaseID" name="Case ID" required><br>  
+        <br>
+         <input type="submit" value="Add Suspect">  
+     </fieldset>  
+  </form> 
+      </div>
+	<!--<div>
+	<form method="POST" action="" enctype="multipart/form-data">
+		{% csrf_token %}
+
+
+		Suspect ID: <input type="text" name="id"><br>
+		Name: <input type="text" name="name"><br>
+		Image: <input type="file" name="image"><br>
+		Phone Number: <input type="text" name="phone_number"><br>
+		Age: <input type="int" name="age"><br>
+		Gender: <input type="text" name="gender"><br>
+		Relation: <input type="text" name="relation"><br>
+		description: <textarea name="description"></textarea><br>
+		Weight: <input type="int" name="weight"><br>
+		Case ID: <input type="int" name="case_id"><br>
+		<button>Add Suspect</button>
+	</form>
+</div>-->
+</body>
+</html>

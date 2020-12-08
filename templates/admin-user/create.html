@@ -2,165 +2,29 @@
 <html>
 <head>
 	<title>Create user</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-        
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
-    li a:hover, .dropdown:hover .dropbtn {
-  background-color: #4CAF50;
-}
-
-/*li.dropdown {
-  display: inline-block;
-}
-*/
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #4CAF50;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-  </style>
 </head>
 <body>
+	<h1>Create user (add)</h1>
+	<form method="POST" enctype="multipart/form-data" action=''>
+		{% csrf_token %}
 
-	<nav class="navbar navbar-inverse visible-xs">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Cases</a>
-    <div class="dropdown-content">
-      <a href="#">Add Case</a>
-      <a href="#">Add Evidence</a>
-      <a href="#">Add Case Officer</a>
-      <a href="#">Case History</a>     
-    </div>
-  </li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Officers</a>
-    <div class="dropdown-content">
-      <a href="#">Add Officer</a>
-      <a href="#">Add Case Officer</a>
-    </div>
-  </li>
-  <li><a href="#section3">Criminals</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <h2>Admin</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Dashboard</a></li>
-        <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Cases</a>
-    <div class="dropdown-content">
-      <a href="#">Add Case</a>
-      <a href="#">Add Evidence</a>
-      <a href="#">Add Case Officer</a>
-      <a href="#">Case History</a>     
-    </div>
-  </li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Officers</a>
-    <div class="dropdown-content">
-      <a href="#">Add Officer</a>
-      <a href="#">Add Case Officer</a>
-    </div>
-  </li>
-  <li><a href="#section3">Criminals</a></li>
-        <li><a href="#section3">Logout</a></li>
-      </ul><br>
-    </div>
-    <br>
-    
-    <div class="col-sm-9">
-      <div class="well">
-          <h2>Add Officer</h2>  
-    <form method="POST" enctype="multipart/form-data" action=''>  
-    	{% csrf_token %}
-     <fieldset> 
-     <label>Office ID (pre defined)</label><br>  
-        <input type="OfficeID" name="Office ID" required><br>
-        <label>Enter full name</label><br>  
-        <input type="text" name="name" required><br>
-        <label>Enter Password</label><br>  
-        <input type="password" name="password" required><br> <br> 
-        <label>Profile Pic</label><br> 
-        <input type="file" name="fileToUpload" id="fileToUpload" required>
-        <br><label for="gender">Enter gender</label>
-          <select id="gender" name="gender" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Oth**">Oth**</option>
-          </select><br><br>
-        <label>Department</label><br>  
-        <input type="text" name="Department" required><br><br>	
-        <label for="phone">Enter a phone number:</label><br>
-  <input type="tel" id="phone" name="phone" placeholder="(+91) 12345 67890"required><br><br>
-         <label>Enter email</label><br>  
-         <input type="email" name="email" required><br>  
-         <br><label for="Rank">Rank Of The Officer</label>
-          <select id="Rank" name="Rank" required>
-            <option value="con**">Con**</option>
-            <option value="Ins**">Ins**</option>
-            <option value="Asp**">Asp**</option>
-            <option value="Oth**">Oth**</option>
-          </select><br><br>
-         <label>Location</label><br>  
-        <input type="text" name="location" required><br>        
-         
-          
-          <br>Remarks<br>  
-         <textarea></textarea><br>  <br>
-         <button value="officer">Add officer</button>  
-     </fieldset>  
-  </form> 
-      </div>	
+		<!-- Add officer form -->
+		<h3>Add officer </h3>
+		<!--Admin id: <input type="text" name="admin_id"><br>-->
+
+		Name: <input type="text" name="name"><br>
+		Password: <input type="password" name="password"><br>
+		Image: <input type="file" name="image"><br>
+		Department: <input type="text" name="department"><br>
+		Phone number: <input type="text" name="phone_number"><br>
+		Mail: <input type="email" name="mail"><br>
+		Rank of officer: <input type="text" name="rank_of_officer"><br>
+		Location: <input type="text" name="location"><br>
+		<button value="officer">Add officer</button>
+
+
+	</form>
+	
 
 </body>
 </html>

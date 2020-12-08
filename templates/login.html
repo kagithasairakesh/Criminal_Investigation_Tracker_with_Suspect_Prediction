@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title><meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 35%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -23,7 +22,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 15%;
 }
 
 button:hover {
@@ -40,19 +39,19 @@ button:hover {
   padding: 16px;
 }
 
-span.psw {
+span.password {
   float: right;
   padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 100px) {
   span.psw {
      display: block;
      float: none;
   }
   .cancelbtn {
-     width: 100%;
+     width: 35%;
   }
 }
 </style>
@@ -62,19 +61,25 @@ span.psw {
 	<form method="POST" action="/login/">
 		{% csrf_token %}
 		<div class="container">
-    	<label for="uname"><b>Username</b></label>
-		<input type="text" placeholder="Enter Username" name="username" required>
-		<label for="psw"><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="password" required>
-		<button type="submit">Login</button>
-    <label>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required><br>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
+        
+    <button type="submit">Login</button>
+    <!--<label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    </label>-->
   </div>
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
+
+
+
+
+
+		<!--Enter Username: <input type="text" name="username"><br>
+		Enter Password: <input type="password" name="password"><br>
+		<button>Login</button>-->
 
 		
 	</form>
@@ -82,5 +87,3 @@ span.psw {
 
 </body>
 </html>
-
-

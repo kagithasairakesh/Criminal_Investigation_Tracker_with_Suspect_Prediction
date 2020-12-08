@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add Case</title>
+</head>
+<body>
+	<h1>Add case</h1>
+	<form method="POST" action="">
+		{% csrf_token %}
+		Case ID: <input type="text" name="case_id"><br>
+		Case Name: <input type="text" name="case_name"><br>
+		Case Type: <input type="text" name="case_type"><br>
+		Notes: <textarea name="notes"></textarea><br>
+		Description: <textarea name="description"></textarea><br>
+		Type of Weapon: <input type="text" name="type_of_weapon"><br>
+		Time: <input type="time" name="time"> <br>
+		Date: <input type="date" name="date"><br>
+		Officer ID: <input type="text" name="officer_id"><br>
+		<button>Submit</button>
+	</form>
+	
+
+</body>
+</html>

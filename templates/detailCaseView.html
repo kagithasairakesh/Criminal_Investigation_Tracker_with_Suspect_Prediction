@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detail View</title>
+</head>
+<body>
+	{{caseObj}}
+	<h2>{{caseObj.name}}</h2>
+	<p>Case type: {{caseObj.case_type}}</p>
+	<p>Notes: <code>{{caseObj.notes}}</code></p>
+	<p>Description: <code>{{caseObj.description}}</code></p>
+	<p>Type of weapon: {{caseObj.type_of_weapon}}</p>
+	<p>Time: {{caseObj.time}}</p>
+	<p>Date: {{caseObj.date}}</p>
+	<p>status: {{caseObj.status}}</p>
+
+	<a href="/addEvidence/{{caseObj.case_id}}"><button>Add Evidence</button></a>
+	
+</body>
+</html>
